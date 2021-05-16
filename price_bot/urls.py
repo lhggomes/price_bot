@@ -21,3 +21,7 @@ urlpatterns = [
     path('', include('americanas.urls'))
 
 ]
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
