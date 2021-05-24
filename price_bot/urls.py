@@ -15,13 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from price_bot import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('americanas.urls'))
+    path('', include('americanas.urls')),
+    path('', include('pages.urls')),
 
 ]
 
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.ROOT_URLCONF)
