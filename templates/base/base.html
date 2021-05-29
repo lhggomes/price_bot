@@ -1,0 +1,67 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>Title</title>
+    {% endblock %}
+
+    <link rel="stylesheet" href=" {% static 'css/materialize.min.css' %}">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href=" {% static 'css/font-awesome.min.css' %} ">
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+
+    <!-- Compiled and minified JavaScript -->
+
+
+    {% block nav-bar %}
+        <div>
+            <nav>
+                <div class="navbar-fixed light-blue">
+
+
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="#"><h5>{% trans 'Painel de Controle' %}</h5></a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="margin-top:65px !important;">
+            <li><a href="#!">{% trans 'Produtos' %}</a><span class="material-icons">cloud</span></li>
+            <li><a href="#!">{% trans 'Empresas' %}</a></li>
+            <li><a href="#!">{% trans 'Valores Minimos' %}</a></li>
+            <li><a href="#!">{% trans 'Usuários' %}</a></li>
+
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+
+
+<style>
+    header, main, footer {
+        padding-left: 300px;
+    }
+
+    @media only screen and (max-width: 992px) {
+        header, main, footer {
+            padding-left: 0;
+        }
+    }
+</style>
+</html>

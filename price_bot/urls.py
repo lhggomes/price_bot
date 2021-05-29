@@ -20,7 +20,6 @@ from price_bot import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('americanas.urls')),
     path('', include('pages.urls')),
 
 ]
