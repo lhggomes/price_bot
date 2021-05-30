@@ -7,7 +7,7 @@ from pages.models import *
 
 
 class Dashboard(TemplateView):
-    template_name = 'base/dashboard.html'
+    template_name = 'pages/dashboard/main.html'
 
 
 class ManageProduct(CreateView):
