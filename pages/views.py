@@ -13,6 +13,6 @@ class Dashboard(TemplateView):
 class CreateProduct(CreateView):
     model = Product
     fields = ['code', 'company', 'description', 'ean', 'url', 'image_url']
-    template_name = 'pages/dashboard/prod_create.html'
+    template_name = 'pages/dashboard/create_prod.html'
     success_url = reverse_lazy('success-message')
 

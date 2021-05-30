@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}
+    <title>{% trans 'Cadastro de Produto' %}</title>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="col s6">
+            <h6>{% trans 'Inclusão de novo produto' %}</h6>
+            <form action="" method="POST" class="form-group">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <hr class="mt-5">
+                <button type="submit" class="btn btn-success">
+                    {% trans 'Cadastrar' %}
+                </button>
+
+            </form>
+        </div>
+        <div class="col s6">
+            <h6>{% trans 'Consulta Produtos' %}</h6>
+
+        </div>
+    </div>
+
+
+{% endblock %}

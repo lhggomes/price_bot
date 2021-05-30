@@ -12,7 +12,7 @@
     <link rel="stylesheet" href=" {% static 'css/materialize.min.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href=" {% static 'css/boot.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/bot.css' %} ">
     <script src="{% static 'js/materialize.min.js' %}"></script>
 
     {% block nav-bar %}
@@ -28,7 +28,7 @@
 
 
         <ul id="slide-out" class="sidenav sidenav-fixed">
-            <li><a href="#!"><span class="material-icons">local_offer</span>{% trans 'Produtos' %}</a></li>
+            <li><a href="{% url 'manage-product' %}"><span class="material-icons">local_offer</span>{% trans 'Produtos' %}</a></li>
             <li><a href="#!"><span class="material-icons">business</span>{% trans 'Empresas' %}</a></li>
             <li><a href="#!"><span class="material-icons">price_check</span>{% trans 'Valores Minimos' %}</a></li>
             <li><a href="#!"><span class="material-icons">description</span>{% trans 'Relatórios' %}</a></li>
