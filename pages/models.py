@@ -30,6 +30,7 @@ class ProductMinValue(models.Model):
 
 
 class WebSiteDivElement(models.Model):
-    price_div = models.CharField(max_length=400)
-    ame_div = models.CharField(max_length=400)
-    description_div = models.CharField(max_length=400)
+    price_div = models.CharField(max_length=400, verbose_name="ID Preço")
+    ame_div = models.CharField(max_length=400, verbose_name="ID Ame")
+    description_div = models.CharField(max_length=400, verbose_name="ID Descrição")
+    company = models.ForeignKey(Company, on_delete=models.PROTECT, default='', verbose_name="Empresa")

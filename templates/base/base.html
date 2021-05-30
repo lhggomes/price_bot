@@ -9,6 +9,9 @@
         <title>Title</title>
     {% endblock %}
 
+    {% block custom-scripts %}
+    {% endblock %}
+
     <link rel="stylesheet" href=" {% static 'css/materialize.min.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -38,7 +41,8 @@
             <li><a href="#!"><span class="material-icons">description</span>{% trans 'Relatórios' %}</a></li>
             <li><a href="#!"><span class="material-icons">signal_wifi_statusbar_4_bar</span>{% trans 'Estado' %}</a>
             </li>
-            <li><a href="#!"><span class="material-icons">settings_ethernet</span>{% trans 'Dados Técnicos' %}</a></li>
+            <li><a href="{% url 'manage-tech' %}"><span
+                    class="material-icons">settings_ethernet</span>{% trans 'Dados Técnicos' %}</a></li>
             <li><a href="#!"><span class="material-icons">manage_accounts</span>{% trans 'Usuários' %}</a></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>

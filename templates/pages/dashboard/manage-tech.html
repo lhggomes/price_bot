@@ -1,26 +1,22 @@
 {% extends 'base/base.html' %}
 {% load i18n %}
 {% load static %}
-{% load materializecss %}
 {% load crispy_forms_tags %}
 
 
 
-
 {% block title %}
-    <title>{% trans 'Preços' %}</title>
+    <title>{% trans 'Divs' %}</title>
 {% endblock %}
 
 {% block content %}
 
-
     <div class="row">
         <div class="col s6">
-            <h6>{% trans 'Inclusão de Novos Preços' %}</h6>
+            <h6>{% trans 'Inclusão de Nova Tag' %}</h6>
             <form action="" method="POST" class="form-group">
                 {% csrf_token %}
-                {{ form | crispy }}
-
+                {{ form|crispy }}
                 <button class="btn waves-effect" type="submit" name="action">{% trans 'Cadastrar' %}
                     <i class="material-icons right">send</i>
                 </button>
@@ -28,37 +24,36 @@
             </form>
         </div>
         <div class="col s6">
-            <h6>{% trans 'Consulta Preços Minimos' %}</h6>
+            <h6>{% trans 'Consulta Elementos' %}</h6>
+            <div class="fixed right">
+                <a href="#"><span class="material-icons">edit</span></a>
+                <a href="#"><span class="material-icons">delete</span></a>
+            </div>
             <table class="responsive-table">
-                <div class="fixed right">
-                    <a href="#"><span class="material-icons">edit</span></a>
-                    <a href="#"><span class="material-icons">delete</span></a>
-                </div>
                 <thead>
                 <tr>
-                    <th>{% trans 'Produto' %}</th>
-                    <th>{% trans 'Descrição' %}</th>
-                    <th>{% trans 'Preço' %}</th>
-                    <th>{% trans 'Data Cadastro' %}</th>
+                    <th>{% trans 'ID Preço' %}</th>
+                    <th>{% trans 'ID Ame' %}</th>
+                    <th>{% trans 'ID Descrição' %}</th>
+                    <th>{% trans 'Empresa' %}</th>
 
 
                 </tr>
                 </thead>
-                {% for price in prices %}
+                {% for element in div_elements %}
                     <tbody>
                     <tr>
-                        <td>{{ price.product.code }}</td>
-                        <td>{{ price.product.description }}</td>
-                        <td>{{ price.min_value }}</td>
-                        <td>{{ price.date }}</td>
-
+                        <td>{{ element.price_div }}</td>
+                        <td>{{ element.ame_div }}</td>
+                        <td>{{ element.description_div }}</td>
+                        <td>{{ element.company }}</td>
 
                     </tr>
                     </tbody>
                 {% empty %}
                     <tbody>
                     <tr>
-                        <td colspan="6">{% trans 'Nenhum produto cadastrado!' %}</td>
+                        <td colspan="6">{% trans 'Nenhum elemento cadastrado!' %}</td>
                     </tr>
                     </tbody>
                 {% endfor %}

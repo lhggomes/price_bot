@@ -53,3 +53,18 @@ class ManageMinPrice(CreateView):
 
     def form_invalid(self, form):
         return super().form_invalid(form)
+
+
+class ManageWebSiteDivs(CreateView):
+    model = WebSiteDivElement
+    fields = ['price_div', 'ame_div', 'description_div', 'company']
+    template_name = 'pages/dashboard/manage-tech.html'
+    success_url = reverse_lazy('manage-tech')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["div_elements"] = WebSiteDivElement.objects.all()
+        return context
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
