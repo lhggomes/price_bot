@@ -6,11 +6,10 @@
 
 
 {% block title %}
-    <title>{% trans 'Cadastro de Produto' %}</title>
+    <title>{% trans 'Empresas' %}</title>
 {% endblock %}
 
 {% block content %}
-
 
     <div class="row">
         <div class="col s6">
@@ -26,6 +25,10 @@
         </div>
         <div class="col s6">
             <h6>{% trans 'Consulta Empresas' %}</h6>
+            <div class="fixed right">
+                <a href="#"><span class="material-icons">edit</span></a>
+                <a href="#"><span class="material-icons">delete</span></a>
+            </div>
             <table class="responsive-table">
                 <thead>
                 <tr>

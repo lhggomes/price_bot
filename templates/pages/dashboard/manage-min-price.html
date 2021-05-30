@@ -1,12 +1,14 @@
 {% extends 'base/base.html' %}
 {% load i18n %}
 {% load static %}
+{% load materializecss %}
 {% load crispy_forms_tags %}
 
 
 
+
 {% block title %}
-    <title>{% trans 'Produtos' %}</title>
+    <title>{% trans 'Preços' %}</title>
 {% endblock %}
 
 {% block content %}
@@ -14,10 +16,11 @@
 
     <div class="row">
         <div class="col s6">
-            <h6>{% trans 'Inclusão de novo produto' %}</h6>
-            <form action="" method="POST">
+            <h6>{% trans 'Inclusão de Novos Preços' %}</h6>
+            <form action="" method="POST" class="form-group">
                 {% csrf_token %}
-                {{ form|crispy }}
+                {{ form | crispy }}
+
                 <button type="submit" class="btn btn-success">
                     {% trans 'Cadastrar' %}
                 </button>
@@ -25,7 +28,7 @@
             </form>
         </div>
         <div class="col s6">
-            <h6>{% trans 'Consulta Produtos' %}</h6>
+            <h6>{% trans 'Consulta Preços Minimos' %}</h6>
             <table class="responsive-table">
                 <div class="fixed right">
                     <a href="#"><span class="material-icons">edit</span></a>
@@ -33,21 +36,22 @@
                 </div>
                 <thead>
                 <tr>
-                    <th>{% trans 'Código' %}</th>
+                    <th>{% trans 'Produto' %}</th>
                     <th>{% trans 'Descrição' %}</th>
-                    <th>{% trans 'EAN' %}</th>
+                    <th>{% trans 'Preço' %}</th>
                     <th>{% trans 'Data Cadastro' %}</th>
 
 
                 </tr>
                 </thead>
-                {% for product in products %}
+                {% for price in prices %}
                     <tbody>
                     <tr>
-                        <td>{{ product.code }}</td>
-                        <td>{{ product.description }}</td>
-                        <td>{{ product.ean }}</td>
-                        <td>{{ product.date }}</td>
+                        <td>{{ price.product.code }}</td>
+                        <td>{{ price.product.description }}</td>
+                        <td>{{ price.min_value }}</td>
+                        <td>{{ price.date }}</td>
+
 
                     </tr>
                     </tbody>
@@ -65,6 +69,11 @@
 
     </div>
 
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
 
 {% endblock %}

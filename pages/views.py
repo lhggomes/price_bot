@@ -27,13 +27,28 @@ class ManageProduct(CreateView):
 
 class ManageCompany(CreateView):
     model = Company
-    fields = ['description',]
+    fields = ['description', ]
     template_name = 'pages/dashboard/manage-company.html'
     success_url = reverse_lazy('manage-company')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["companies"] = Company.objects.all()
+        return context
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
+
+class ManageMinPrice(CreateView):
+    model = ProductMinValue
+    fields = ['product', 'min_value', 'company']
+    template_name = 'pages/dashboard/manage-min-price.html'
+    success_url = reverse_lazy('manage-min-price')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["prices"] = ProductMinValue.objects.all()
         return context
 
     def form_invalid(self, form):

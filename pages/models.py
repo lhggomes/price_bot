@@ -6,7 +6,7 @@ class Company(models.Model):
     description = models.CharField(max_length=300, verbose_name="Descrição")
     date = models.DateTimeField(default=datetime.date.today)
 
-    def __repr__(self):
+    def __str__(self):
         return self.description
 
 
@@ -18,11 +18,15 @@ class Product(models.Model):
     image_url = models.URLField(default="", verbose_name="Url da imagem")
     date = models.DateTimeField(default=datetime.date.today)
 
+    def __str__(self):
+        return f'{self.code} - {self.description} - {self.ean}'
+
 
 class ProductMinValue(models.Model):
-    min_value = models.FloatField()
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    min_value = models.FloatField(verbose_name="Valor Minimo")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Produto")
     company = models.ForeignKey(Company, on_delete=models.PROTECT, default='', verbose_name="Empresa")
+    date = models.DateTimeField(default=datetime.date.today)
 
 
 class WebSiteDivElement(models.Model):
