@@ -19,7 +19,7 @@ class Product(models.Model):
     date = models.DateTimeField(default=datetime.date.today)
 
     def __str__(self):
-        return f'{self.code} - {self.description} - {self.ean}'
+        return f'{self.code} - {self.description}'
 
 
 class ProductMinValue(models.Model):

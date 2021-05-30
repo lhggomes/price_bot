@@ -13,18 +13,19 @@
 
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s5">
             <h6>{% trans 'Inclusão de novo produto' %}</h6>
             <form action="" method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button type="submit" class="btn btn-success">
-                    {% trans 'Cadastrar' %}
+                <br>
+                <button class="btn waves-effect" type="submit" name="action">{% trans 'Cadastrar' %}
+                    <i class="material-icons right">send</i>
                 </button>
 
             </form>
         </div>
-        <div class="col s6">
+        <div class="col s7">
             <h6>{% trans 'Consulta Produtos' %}</h6>
             <table class="responsive-table">
                 <div class="fixed right">
