@@ -19,4 +19,10 @@ class ProductMinValue(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
 
+class WebSiteDivElement(models.Model):
+    price_div = models.CharField(max_length=400)
+    ame_div = models.CharField(max_length=400)
+    description_div = models.CharField(max_length=400)
+
+
 

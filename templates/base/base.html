@@ -3,42 +3,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="{% static 'img/icon.png' %}">
     <meta charset="UTF-8">
     {% block title %}
         <title>Title</title>
     {% endblock %}
 
     <link rel="stylesheet" href=" {% static 'css/materialize.min.css' %}">
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href=" {% static 'css/font-awesome.min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/boot.css' %} ">
     <script src="{% static 'js/materialize.min.js' %}"></script>
-
-    <!-- Compiled and minified JavaScript -->
-
 
     {% block nav-bar %}
         <div>
             <nav>
-                <div class="navbar-fixed light-blue">
-
-
+                <div class="navbar-fixed blue-grey">
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="#"><h5>{% trans 'Painel de Controle' %}</h5></a></li>
-
+                        <li><a href="{% url 'dashboard-main' %}"><span class="material-icons">settings</span></a></li>
                     </ul>
                 </div>
             </nav>
         </div>
 
 
-        <ul id="slide-out" class="sidenav sidenav-fixed" style="margin-top:65px !important;">
-            <li><a href="#!">{% trans 'Produtos' %}</a><span class="material-icons">cloud</span></li>
-            <li><a href="#!">{% trans 'Empresas' %}</a></li>
-            <li><a href="#!">{% trans 'Valores Minimos' %}</a></li>
-            <li><a href="#!">{% trans 'Usuários' %}</a></li>
-
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+            <li><a href="#!"><span class="material-icons">local_offer</span>{% trans 'Produtos' %}</a></li>
+            <li><a href="#!"><span class="material-icons">business</span>{% trans 'Empresas' %}</a></li>
+            <li><a href="#!"><span class="material-icons">price_check</span>{% trans 'Valores Minimos' %}</a></li>
+            <li><a href="#!"><span class="material-icons">description</span>{% trans 'Relatórios' %}</a></li>
+            <li><a href="#!"><span class="material-icons">settings_ethernet</span>{% trans 'Dados Técnicos' %}</a></li>
+            <li><a href="#!"><span class="material-icons">manage_accounts</span>{% trans 'Usuários' %}</a></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     {% endblock %}
@@ -51,17 +46,4 @@
 </div>
 
 </body>
-
-
-<style>
-    header, main, footer {
-        padding-left: 300px;
-    }
-
-    @media only screen and (max-width: 992px) {
-        header, main, footer {
-            padding-left: 0;
-        }
-    }
-</style>
 </html>
