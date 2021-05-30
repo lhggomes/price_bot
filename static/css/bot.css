@@ -18,3 +18,7 @@ header, main, footer {
         padding-left: 0;
     }
 }
+
+.custom-li{
+    margin-top: 6px !important;
+}
