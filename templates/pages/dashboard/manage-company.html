@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}
+    <title>{% trans 'Cadastro de Produto' %}</title>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="col s6">
+            <h6>{% trans 'Inclusão de Nova Empresa' %}</h6>
+            <form action="" method="POST" class="form-group">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">
+                    {% trans 'Cadastrar' %}
+                </button>
+
+            </form>
+        </div>
+        <div class="col s6">
+            <h6>{% trans 'Consulta Empresas' %}</h6>
+            <table class="responsive-table">
+                <thead>
+                <tr>
+                    <th>{% trans 'Descrição' %}</th>
+                    <th>{% trans 'Data Cadastro' %}</th>
+
+
+                </tr>
+                </thead>
+                {% for company in companies %}
+                    <tbody>
+                    <tr>
+                        <td>{{ company.description }}</td>
+                        <td>{{ company.date }}</td>
+
+                    </tr>
+                    </tbody>
+                {% empty %}
+                    <tbody>
+                    <tr>
+                        <td colspan="6">{% trans 'Nenhuma empresa cadastrada!' %}</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

@@ -10,3 +10,7 @@ class CompanyModelAdmin(admin.ModelAdmin):
     list_display = ('description',)
 
 
+@admin.register(Product)
+class ProductModelAdmin(admin.ModelAdmin):
+    list_display = ('description',)
+

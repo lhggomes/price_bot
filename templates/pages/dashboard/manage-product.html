@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}
+    <title>{% trans 'Cadastro de Produto' %}</title>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="col s6">
+            <h6>{% trans 'Inclusão de novo produto' %}</h6>
+            <form action="" method="POST" class="form-group">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">
+                    {% trans 'Cadastrar' %}
+                </button>
+
+            </form>
+        </div>
+        <div class="col s6">
+            <h6>{% trans 'Consulta Produtos' %}</h6>
+            <table class="responsive-table">
+                <thead>
+                <tr>
+                    <th>{% trans 'Código' %}</th>
+                    <th>{% trans 'Descrição' %}</th>
+                    <th>{% trans 'EAN' %}</th>
+                    <th>{% trans 'Data Cadastro' %}</th>
+
+
+                </tr>
+                </thead>
+                {% for product in products %}
+                    <tbody>
+                    <tr>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.ean }}</td>
+                        <td>{{ product.date }}</td>
+
+                    </tr>
+                    </tbody>
+                {% empty %}
+                    <tbody>
+                    <tr>
+                        <td colspan="6">{% trans 'Nenhum produto cadastrado!' %}</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
