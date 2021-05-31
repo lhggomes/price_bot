@@ -29,10 +29,7 @@
         </div>
         <div class="col s6">
             <h6>{% trans 'Consulta Elementos' %}</h6>
-            <div class="fixed right">
-                <a href="#"><span class="material-icons">edit</span></a>
-                <a href="#"><span class="material-icons">delete</span></a>
-            </div>
+
             <table class="responsive-table">
                 <thead>
                 <tr>
@@ -40,6 +37,8 @@
                     <th>{% trans 'ID Ame' %}</th>
                     <th>{% trans 'ID Descrição' %}</th>
                     <th>{% trans 'Empresa' %}</th>
+                    <th>{% trans 'Editar' %}</th>
+                    <th>{% trans 'Excluir' %}</th>
 
 
                 </tr>
@@ -51,6 +50,11 @@
                         <td>{{ element.ame_div }}</td>
                         <td>{{ element.description_div }}</td>
                         <td>{{ element.company }}</td>
+                        <td><a href="{% url 'update-tech' element.pk %}"><span class="material-icons"
+                                                                               style="font-size: 18px !important;">edit</span></a>
+                        </td>
+                        <td><a href="#"><span class="material-icons"
+                                              style="font-size: 18px !important;">delete</span></a></td>
 
                     </tr>
                     </tbody>

@@ -88,3 +88,13 @@ class UpdateCompany(UpdateView):
 
     def form_invalid(self, form):
         return super().form_invalid(form)
+
+
+class UpdateWebSiteDivs(UpdateView):
+    model = WebSiteDivElement
+    fields = ['price_div', 'ame_div', 'description_div', 'company']
+    template_name = 'pages/dashboard/update/update-view.html'
+    success_url = reverse_lazy('update-tech')
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)

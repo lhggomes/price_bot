@@ -12,4 +12,5 @@ urlpatterns = [
 
     path('dashboard/update-product/<int:pk>', UpdateProduct.as_view(), name='update-product'),
     path('dashboard/update-company/<int:pk>', UpdateCompany.as_view(), name='update-company'),
+    path('dashboard/update-tech/<int:pk>', UpdateWebSiteDivs.as_view(), name='update-tech'),
 ]
