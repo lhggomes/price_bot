@@ -34,16 +34,13 @@
         <div class="col s6">
             <h6>{% trans 'Consulta Preços Minimos' %}</h6>
             <table class="responsive-table">
-                <div class="fixed right">
-                    <a href="#"><span class="material-icons">edit</span></a>
-                    <a href="#"><span class="material-icons">delete</span></a>
-                </div>
                 <thead>
                 <tr>
                     <th>{% trans 'Produto' %}</th>
                     <th>{% trans 'Descrição' %}</th>
                     <th>{% trans 'Preço' %}</th>
                     <th>{% trans 'Data Cadastro' %}</th>
+                    <th>{% trans 'Opções' %}</th>
 
 
                 </tr>
@@ -55,6 +52,8 @@
                         <td>{{ price.product.description }}</td>
                         <td>{{ price.min_value }}</td>
                         <td>{{ price.date }}</td>
+                        <td><a href="#"><span class="material-icons">edit</span></a>
+                            <a href="#"><span class="material-icons">delete</span></a></td>
 
 
                     </tr>

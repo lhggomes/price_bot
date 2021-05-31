@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, UpdateView
 from django.views.generic.edit import CreateView
 from django import forms
 from django.urls import reverse_lazy
@@ -65,6 +65,26 @@ class ManageWebSiteDivs(CreateView):
         context = super().get_context_data(**kwargs)
         context["div_elements"] = WebSiteDivElement.objects.all()
         return context
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
+
+class UpdateProduct(UpdateView):
+    model = Product
+    fields = ['code', 'description', 'ean', 'url', 'image_url']
+    template_name = 'pages/dashboard/update/update-view.html'
+    success_url = reverse_lazy('update-product')
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
+
+class UpdateCompany(UpdateView):
+    model = Company
+    fields = ['description', ]
+    template_name = 'pages/dashboard/update/update-view.html'
+    success_url = reverse_lazy('update-company')
 
     def form_invalid(self, form):
         return super().form_invalid(form)

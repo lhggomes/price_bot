@@ -29,15 +29,13 @@
         </div>
         <div class="col s6">
             <h6>{% trans 'Consulta Empresas' %}</h6>
-            <div class="fixed right">
-                <a href="#"><span class="material-icons">edit</span></a>
-                <a href="#"><span class="material-icons">delete</span></a>
-            </div>
             <table class="responsive-table">
                 <thead>
                 <tr>
                     <th>{% trans 'Descrição' %}</th>
                     <th>{% trans 'Data Cadastro' %}</th>
+                    <th>{% trans 'Editar' %}</th>
+                    <th>{% trans 'Excluir' %}</th>
 
 
                 </tr>
@@ -47,6 +45,10 @@
                     <tr>
                         <td>{{ company.description }}</td>
                         <td>{{ company.date }}</td>
+                        <td><a href="{% url 'update-company' company.pk %}" style="font-size: 18px !important;"><span
+                                class="material-icons">edit</span></a></td>
+                        <td><a href="#"><span class="material-icons"
+                                              style="font-size: 18px !important;">delete</span></a></td>
 
                     </tr>
                     </tbody>
