@@ -1,13 +1,15 @@
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-page">
 <head>
     <style>
         .custom-li {
             margin-top: 10px !important;
         }
     </style>
+    {% block custom-styles %}
+    {% endblock %}
 
     <link rel="icon" href="{% static 'img/icon.png' %}">
     <meta charset="UTF-8">
@@ -26,9 +28,10 @@
 
 
     {% block nav-bar %}
+
         <div>
             <nav>
-                <div class="navbar-fixed green">
+                <div id="nav-bar-custom" class="navbar-fixed green">
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="{% url 'dashboard-main' %}"><span class="material-icons">settings</span></a></li>
                     </ul>

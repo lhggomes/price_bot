@@ -52,10 +52,10 @@
                         <td>{{ product.ean }}</td>
                         <td>{{ product.date }}</td>
                         <td><a href="{% url 'update-product' product.pk %}"><span
-                                class="material-icons" style="font-size: 18px !important;">edit</span></a>
+                                class="material-icons" style="font-size: 20px !important;">edit</span></a>
                         </td>
-                        <td><a href="#"><span class="material-icons"
-                                              style="font-size: 18px !important;">delete</span></a></td>
+                        <td><a href="{% url 'delete-product' product.pk %}"><span class="material-icons"
+                                              style="font-size: 20px !important;">delete</span></a></td>
 
                     </tr>
                     </tbody>

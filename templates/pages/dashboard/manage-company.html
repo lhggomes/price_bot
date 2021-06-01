@@ -45,10 +45,11 @@
                     <tr>
                         <td>{{ company.description }}</td>
                         <td>{{ company.date }}</td>
-                        <td><a href="{% url 'update-company' company.pk %}" style="font-size: 18px !important;"><span
+                        <td><a href="{% url 'update-company' company.pk %}" style="font-size: 20px !important;"><span
                                 class="material-icons">edit</span></a></td>
-                        <td><a href="#"><span class="material-icons"
-                                              style="font-size: 18px !important;">delete</span></a></td>
+                        <td><a href="{% url 'delete-company' company.pk %}"><span class="material-icons"
+                                                                                  style="font-size: 20px !important;">delete</span></a>
+                        </td>
 
                     </tr>
                     </tbody>

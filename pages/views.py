@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, UpdateView
+from django.views.generic import TemplateView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from django import forms
 from django.urls import reverse_lazy
@@ -90,6 +90,16 @@ class UpdateCompany(UpdateView):
         return super().form_invalid(form)
 
 
+class UpdateMinPrice(UpdateView):
+    model = ProductMinValue
+    fields = ['product', 'min_value', 'company']
+    template_name = 'pages/dashboard/update/update-view.html'
+    success_url = reverse_lazy('update-price')
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
+
 class UpdateWebSiteDivs(UpdateView):
     model = WebSiteDivElement
     fields = ['price_div', 'ame_div', 'description_div', 'company']
@@ -98,3 +108,24 @@ class UpdateWebSiteDivs(UpdateView):
 
     def form_invalid(self, form):
         return super().form_invalid(form)
+
+
+class DeleteProduct(DeleteView):
+    model = Product
+    template_name = 'pages/dashboard/update/delete-view.html'
+    success_message = 'Produto excluído com sucesso!'
+    success_url = reverse_lazy('manage-product')
+
+
+class DeleteCompany(DeleteView):
+    model = Company
+    template_name = 'pages/dashboard/update/delete-view.html'
+    success_message = 'Empresa excluído com sucesso!'
+    success_url = reverse_lazy('manage-company')
+
+
+class DeleteMinPrice(DeleteView):
+    model = ProductMinValue
+    template_name = 'pages/dashboard/update/delete-view.html'
+    success_message = 'Valor excluído com sucesso!'
+    success_url = reverse_lazy('manage-min-price')

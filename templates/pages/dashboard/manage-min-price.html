@@ -17,7 +17,6 @@
 
 {% block content %}
 
-
     <div class="row">
         <div class="col s6">
             <h6>{% trans 'Inclusão de Novos Preços' %}</h6>
@@ -40,7 +39,8 @@
                     <th>{% trans 'Descrição' %}</th>
                     <th>{% trans 'Preço' %}</th>
                     <th>{% trans 'Data Cadastro' %}</th>
-                    <th>{% trans 'Opções' %}</th>
+                    <th>{% trans 'Editar' %}</th>
+                    <th>{% trans 'Excluir' %}</th>
 
 
                 </tr>
@@ -52,8 +52,12 @@
                         <td>{{ price.product.description }}</td>
                         <td>{{ price.min_value }}</td>
                         <td>{{ price.date }}</td>
-                        <td><a href="#"><span class="material-icons">edit</span></a>
-                            <a href="#"><span class="material-icons">delete</span></a></td>
+                        <td><a href="{% url 'update-price' price.pk %}"><span class="material-icons"
+                                                                              style="font-size: 20px !important;">edit</span></a>
+                        </td>
+                        <td><a href="{% url 'delete-price' price.pk %}"><span class="material-icons"
+                                                                              style="font-size: 20px !important;">delete</span></a>
+                        </td>
 
 
                     </tr>
@@ -61,7 +65,7 @@
                 {% empty %}
                     <tbody>
                     <tr>
-                        <td colspan="6">{% trans 'Nenhum produto cadastrado!' %}</td>
+                        <td colspan="6">{% trans 'Nenhum preço cadastrado!' %}</td>
                     </tr>
                     </tbody>
                 {% endfor %}

@@ -29,6 +29,10 @@ class ProductMinValue(models.Model):
     date = models.DateTimeField(default=datetime.date.today)
 
 
+    def __str__(self):
+        return f'{self.product.code} - {self.product.description} - {self.min_value}'
+
+
 class WebSiteDivElement(models.Model):
     price_div = models.CharField(max_length=400, verbose_name="ID Preço")
     ame_div = models.CharField(max_length=400, verbose_name="ID Ame")

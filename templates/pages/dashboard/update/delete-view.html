@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+    <title>{% trans 'Exclusão' %}</title>
+{% endblock %}
+
+{% block dash-title %}
+    <b>{% trans 'Exclusão de Item :: DangerZone' %}</b>
+{% endblock %}
+
+{% block custom-styles %}
+    <style>
+        #nav-bar-custom {
+            background-color: red !important;
+        }
+
+        #html-page {
+            background-color: #FFEBEB !important;
+        }
+
+        #slide-out {
+            background-color: #FFEBEB !important;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h6 class="red-text"><b>{% trans 'Exclusão de Registro' %}</b></h6>
+    <div class="row">
+        <div class="col s5 materialize-red white-text" style="margin-top: 15px;">
+            <form>
+                <p>{% trans 'Deseja realmente excluir o registro?' %}</p>
+                <p><i>{{ object }}</i></p>
+                {% csrf_token %}
+                {{ form |crispy }}
+                <button type="submit" class="btn red lighten-1">
+                    {% trans 'Excluir' %}
+                </button>
+            </form>
+            <br>
+        </div>
+    </div>
+{% endblock %}
