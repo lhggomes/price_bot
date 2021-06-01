@@ -129,3 +129,10 @@ class DeleteMinPrice(DeleteView):
     template_name = 'pages/dashboard/update/delete-view.html'
     success_message = 'Valor excluído com sucesso!'
     success_url = reverse_lazy('manage-min-price')
+
+
+class DeleteWebSiteDivs(DeleteView):
+    model = WebSiteDivElement
+    template_name = 'pages/dashboard/update/delete-view.html'
+    success_message = 'Elemento excluído com sucesso!'
+    success_url = reverse_lazy('manage-tech')

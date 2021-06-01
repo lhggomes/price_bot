@@ -19,5 +19,6 @@ urlpatterns = [
     path('dashboard/delete/product/<int:pk>', DeleteProduct.as_view(), name='delete-product'),
     path('dashboard/delete/company/<int:pk>', DeleteCompany.as_view(), name='delete-company'),
     path('dashboard/delete/price/<int:pk>', DeleteMinPrice.as_view(), name='delete-price'),
+    path('dashboard/delete/tech/<int:pk>', DeleteWebSiteDivs.as_view(), name='delete-tech'),
 
 ]

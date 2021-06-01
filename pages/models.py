@@ -28,7 +28,6 @@ class ProductMinValue(models.Model):
     company = models.ForeignKey(Company, on_delete=models.PROTECT, default='', verbose_name="Empresa")
     date = models.DateTimeField(default=datetime.date.today)
 
-
     def __str__(self):
         return f'{self.product.code} - {self.product.description} - {self.min_value}'
 
@@ -38,3 +37,6 @@ class WebSiteDivElement(models.Model):
     ame_div = models.CharField(max_length=400, verbose_name="ID Ame")
     description_div = models.CharField(max_length=400, verbose_name="ID Descrição")
     company = models.ForeignKey(Company, on_delete=models.PROTECT, default='', verbose_name="Empresa")
+
+    def __str__(self):
+        return f'{self.company.description} - {self.description_div}'

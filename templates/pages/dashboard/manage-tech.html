@@ -53,8 +53,9 @@
                         <td><a href="{% url 'update-tech' element.pk %}"><span class="material-icons"
                                                                                style="font-size: 20px !important;">edit</span></a>
                         </td>
-                        <td><a href="#"><span class="material-icons"
-                                              style="font-size: 20px !important;">delete</span></a></td>
+                        <td><a href="{% url 'delete-tech' element.pk %}"><span class="material-icons"
+                                                                               style="font-size: 20px !important;">delete</span></a>
+                        </td>
 
                     </tr>
                     </tbody>
