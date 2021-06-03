@@ -18,7 +18,7 @@
         <div class="col s4">
             <h6><b>{% trans 'Inclusão de novo produto' %}</b></h6>
             <br>
-            <form action="" method="POST">
+            <form action="" method="POST" class="form-select-lg">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <br>
@@ -27,6 +27,7 @@
                 </button>
 
             </form>
+            <br>
         </div>
         <div class="col s8">
             <h6><b>{% trans 'Consulta Produtos' %}</b></h6>
@@ -55,7 +56,8 @@
                                 class="material-icons" style="font-size: 20px !important;">edit</span></a>
                         </td>
                         <td><a href="{% url 'delete-product' product.pk %}"><span class="material-icons"
-                                              style="font-size: 20px !important;">delete</span></a></td>
+                                                                                  style="font-size: 20px !important;">delete</span></a>
+                        </td>
 
                     </tr>
                     </tbody>
