@@ -21,4 +21,7 @@ urlpatterns = [
     path('dashboard/delete/price/<int:pk>', DeleteMinPrice.as_view(), name='delete-price'),
     path('dashboard/delete/tech/<int:pk>', DeleteWebSiteDivs.as_view(), name='delete-tech'),
 
+    # Report Views
+    path('dashboard/price-history', ReportProductPriceHistory.as_view(), name='price-history'),
+
 ]

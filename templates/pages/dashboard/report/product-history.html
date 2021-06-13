@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>{% trans 'Historicos' %}</title>
+{% endblock %}
+
+{% block dash-title %}
+    <b>{% trans 'Historico de Preços' %}</b>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col s12">
+            <h6><b>{% trans 'Consulta Historico de Preços' %}</b></h6>
+            <br>
+            <table class="responsive-table">
+                <thead>
+                <tr>
+                    <th>{% trans 'Produto' %}</th>
+                    <th>{% trans 'Empresa' %}</th>
+                    <th>{% trans 'Preço' %}</th>
+                    <th>{% trans 'Data' %}</th>
+
+
+                </tr>
+                </thead>
+                {% for price in price_history %}
+                    <tbody>
+                    <tr>
+                        <td>{{ price.product }}</td>
+                        <td>{{ price.company }}</td>
+                        <td>{{ price.price }}</td>
+                        <td>{{ price.date }}</td>
+
+                    </tr>
+                    </tbody>
+                {% empty %}
+                    <tbody>
+                    <tr>
+                        <td colspan="6">{% trans 'Nenhum registro cadastrado!' %}</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

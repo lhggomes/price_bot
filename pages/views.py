@@ -4,10 +4,12 @@ from django.urls import reverse_lazy
 from pages.models import *
 from price_bot.scraping import get_product
 
+
 class Dashboard(TemplateView):
     template_name = 'pages/dashboard/main.html'
 
 
+# Classes to manage the data
 class ManageProduct(CreateView):
     model = Product
     fields = ['code', 'description', 'ean', 'url', 'image_url']
@@ -69,6 +71,7 @@ class ManageWebSiteDivs(CreateView):
         return super().form_invalid(form)
 
 
+# Classes to update the data
 class UpdateProduct(UpdateView):
     model = Product
     fields = ['code', 'description', 'ean', 'url', 'image_url']
@@ -109,6 +112,7 @@ class UpdateWebSiteDivs(UpdateView):
         return super().form_invalid(form)
 
 
+# Classes to delete the data
 class DeleteProduct(DeleteView):
     model = Product
     template_name = 'pages/dashboard/update/delete-view.html'
@@ -135,3 +139,14 @@ class DeleteWebSiteDivs(DeleteView):
     template_name = 'pages/dashboard/update/delete-view.html'
     success_message = 'Elemento excluído com sucesso!'
     success_url = reverse_lazy('manage-tech')
+
+
+# Classes to generate the reports
+class ReportProductPriceHistory(TemplateView):
+    model = ProductPriceHistory
+    template_name = 'pages/dashboard/report/product-history.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['price_history'] = ProductPriceHistory.objects.all()
+        return context
