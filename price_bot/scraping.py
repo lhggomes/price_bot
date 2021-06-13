@@ -38,9 +38,9 @@ def get_product():
     companies = create_company_and_product_dict()
 
     product = Product.objects.filter(code='1611318018').first()
-    min_price = ProductMinValue.objects.filter(product=product, company=companies['americanas']['americanas']).first()
+    min_price = ProductMinValue.objects.filter(product=product, company=companies[0]['americanas']['americanas']).first()
 
-    americanas_site = f"{str(companies['americanas']['americanas_site'])}/produto/1611318018"
+    americanas_site = f"{str(companies[0]['americanas']['americanas_site'])}/produto/1611318018"
 
     try:
         req = Request(americanas_site, headers=HEADERS)
@@ -53,7 +53,7 @@ def get_product():
 
         try:
             elements = \
-                soup.findAll('div', {"class": str(companies['americanas']['americanas_div'].price_div)}, limit=1)[0]
+                soup.findAll('div', {"class": str(companies[0]['americanas']['americanas_div'].price_div)}, limit=1)[0]
             value = float(elements.text.split('R$ ')[-1].replace('.', "").replace(",", "."))
             if value < min_price.min_value:
                 print('Thank you')
