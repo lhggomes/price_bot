@@ -4,7 +4,7 @@ from pages.models import *
 
 @admin.register(Company)
 class CompanyModelAdmin(admin.ModelAdmin):
-    list_display = ('description',)
+    list_display = ('description', 'web_site',)
 
 
 @admin.register(Product)
@@ -14,7 +14,7 @@ class ProductModelAdmin(admin.ModelAdmin):
 
 @admin.register(WebSiteDivElement)
 class WebSiteDivElementModelAdmin(admin.ModelAdmin):
-    list_display = ('company',)
+    list_display = ('company', 'ame_div', 'description_div', 'price_div', )
 
 
 @admin.register(ProductMinValue)

@@ -8,7 +8,11 @@ class Company(models.Model):
     web_site = models.CharField(max_length=300, default="")
 
     def __str__(self):
-        return self.description
+        return f"{self.description} - [{self.web_site}]"
+
+    class Meta:
+        verbose_name = "Empresa"
+        verbose_name_plural = "Empresas"
 
 
 class Product(models.Model):
@@ -22,6 +26,10 @@ class Product(models.Model):
     def __str__(self):
         return f'{self.code} - {self.description}'
 
+    class Meta:
+        verbose_name = "Produto"
+        verbose_name_plural = "Produtos"
+
 
 class ProductMinValue(models.Model):
     min_value = models.FloatField(verbose_name="Valor Minimo")
@@ -32,15 +40,23 @@ class ProductMinValue(models.Model):
     def __str__(self):
         return f'{self.product.code} - {self.product.description} - {self.min_value}'
 
+    class Meta:
+        verbose_name = "Preço Minimo"
+        verbose_name_plural = "Preços Minimos"
+
 
 class WebSiteDivElement(models.Model):
-    price_div = models.CharField(max_length=400, verbose_name="ID Preço")
-    ame_div = models.CharField(max_length=400, verbose_name="ID Ame")
-    description_div = models.CharField(max_length=400, verbose_name="ID Descrição")
+    price_div = models.CharField(max_length=400, verbose_name="Class Preço")
+    ame_div = models.CharField(max_length=400, verbose_name="Class Ame")
+    description_div = models.CharField(max_length=400, verbose_name="Class Descrição")
     company = models.ForeignKey(Company, on_delete=models.PROTECT, default='', verbose_name="Empresa")
 
     def __str__(self):
         return f'{self.company.description} - {self.description_div}'
+
+    class Meta:
+        verbose_name = "Elemento Site"
+        verbose_name_plural = "Elementos Site"
 
 
 class ProductPriceHistory(models.Model):
@@ -51,3 +67,7 @@ class ProductPriceHistory(models.Model):
 
     def __str__(self):
         return f'{self.product.description} - {self.company.description}: {self.price}'
+
+    class Meta:
+        verbose_name = "Histórico de Preço"
+        verbose_name_plural = "Históricos de Preços"
