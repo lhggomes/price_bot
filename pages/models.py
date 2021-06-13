@@ -5,6 +5,7 @@ from django.db import models
 class Company(models.Model):
     description = models.CharField(max_length=300, verbose_name="Descrição")
     date = models.DateTimeField(default=datetime.date.today)
+    web_site = models.CharField(max_length=300, default="")
 
     def __str__(self):
         return self.description
@@ -40,3 +41,13 @@ class WebSiteDivElement(models.Model):
 
     def __str__(self):
         return f'{self.company.description} - {self.description_div}'
+
+
+class ProductPriceHistory(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    company = models.ForeignKey(Company, on_delete=models.PROTECT)
+    price = models.FloatField()
+    date = models.DateTimeField(default=datetime.datetime.now)
+
+    def __str__(self):
+        return f'{self.product.description} - {self.company.description}: {self.price}'

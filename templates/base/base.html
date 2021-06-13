@@ -7,6 +7,11 @@
         .custom-li {
             margin-top: 10px !important;
         }
+
+        #slide-out {
+            margin-top: 65px !important;
+            width: 250px !important;
+        }
     </style>
     {% block custom-styles %}
     {% endblock %}
@@ -19,14 +24,14 @@
 
     {% block custom-scripts %}
     {% endblock %}
-
+    <link rel="stylesheet" href=" {% static 'css/bot.css' %} ">
     <link rel="stylesheet" href=" {% static 'css/materialize.min.css' %}">
     <script src="{% static 'js/materialize.min.js' %}"></script>
 
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href=" {% static 'css/bot.css' %} ">
+
 
 
 

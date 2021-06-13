@@ -33,6 +33,7 @@
                 <thead>
                 <tr>
                     <th>{% trans 'Descrição' %}</th>
+                    <th>{% trans 'Site' %}</th>
                     <th>{% trans 'Data Cadastro' %}</th>
                     <th>{% trans 'Editar' %}</th>
                     <th>{% trans 'Excluir' %}</th>
@@ -44,6 +45,7 @@
                     <tbody>
                     <tr>
                         <td>{{ company.description }}</td>
+                        <td>{{ company.web_site }}</td>
                         <td>{{ company.date }}</td>
                         <td><a href="{% url 'update-company' company.pk %}" style="font-size: 20px !important;"><span
                                 class="material-icons">edit</span></a></td>
