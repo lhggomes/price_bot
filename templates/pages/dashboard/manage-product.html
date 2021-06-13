@@ -11,9 +11,21 @@
     <b>{% trans 'Gerenciar Produtos' %}</b>
 {% endblock %}
 
+{% block custom-styles %}
+    <style>
+        #product-url-custom {
+            background-color: rgb(242, 242, 242) !important;
+
+        }
+
+        #product-url-custom a {
+            color: rgb(0, 149, 0) !important;
+
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
-
-
     <div class="row">
         <div class="col s4">
             <h6><b>{% trans 'Inclusão de novo produto' %}</b></h6>
@@ -74,7 +86,4 @@
 
 
     </div>
-
-
-
 {% endblock %}

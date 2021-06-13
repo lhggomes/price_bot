@@ -54,24 +54,25 @@
 
 
         <ul id="slide-out" class="sidenav sidenav-fixed">
-            <li class="custom-li"><a href="{% url 'dashboard-main' %}"><span
+            <li class="custom-li" id="main-url-custom"><a href="{% url 'dashboard-main' %}"><span
                     class="material-icons">home</span>{% trans 'Pagina Inicial' %}</a></li>
-            <li class="custom-li"><a href="{% url 'manage-product' %}"><span
+            <li class="custom-li" id="product-url-custom"><a href="{% url 'manage-product' %}"><span
                     class="material-icons">local_offer</span>{% trans 'Produtos' %}</a></li>
-            <li class="custom-li"><a href="{% url 'manage-company' %}"><span
+            <li class="custom-li" id="company-url-custom"><a href="{% url 'manage-company' %}"><span
                     class="material-icons">business</span>{% trans 'Empresas' %}
             </a></li>
-            <li class="custom-li"><a href="{% url 'manage-min-price' %}"><span
+            <li class="custom-li" id="price-url-custom"><a href="{% url 'manage-min-price' %}"><span
                     class="material-icons">price_check</span>{% trans 'Valores Minimos' %}</a></li>
-            <li class="custom-li"><a href="{% url 'price-history' %}"><span
+            <li class="custom-li" id="history-url-custom"><a href="{% url 'price-history' %}"><span
                     class="material-icons">description</span>{% trans 'Relatórios' %}
             </a></li>
-            <li class="custom-li"><a href="#!"><span
+            <li class="custom-li" id="state-url-custom"><a href="#!"><span
                     class="material-icons">signal_wifi_statusbar_4_bar</span>{% trans 'Estado' %}</a>
             </li>
-            <li class="custom-li"><a href="{% url 'manage-tech' %}"><span
+            <li class="custom-li" id="tech-url-custom"><a href="{% url 'manage-tech' %}"><span
                     class="material-icons">settings_ethernet</span>{% trans 'Dados Técnicos' %}</a></li>
-            <li class="custom-li"><a href="#!"><span class="material-icons">manage_accounts</span>{% trans 'Usuários' %}
+            <li class="custom-li" id="users-url-custom"><a href="#!"><span
+                    class="material-icons">manage_accounts</span>{% trans 'Usuários' %}
             </a></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
