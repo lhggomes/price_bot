@@ -19,7 +19,7 @@ class WebSiteDivElementModelAdmin(admin.ModelAdmin):
 
 @admin.register(ProductMinValue)
 class ProductMinValueModelAdmin(admin.ModelAdmin):
-    list_display = ('product', 'company', 'min_value',)
+    list_display = ('product',  'min_value',)
 
 
 @admin.register(ProductPriceHistory)

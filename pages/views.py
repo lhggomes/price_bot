@@ -32,7 +32,7 @@ class ManageCompany(CreateView):
     success_url = reverse_lazy('manage-company')
 
     def get_context_data(self, **kwargs):
-        # get_product()
+        get_product()
         context = super().get_context_data(**kwargs)
         context["companies"] = Company.objects.all()
         return context
@@ -43,7 +43,7 @@ class ManageCompany(CreateView):
 
 class ManageMinPrice(CreateView):
     model = ProductMinValue
-    fields = ['product', 'min_value', 'company']
+    fields = ['product', 'min_value', ]
     template_name = 'pages/dashboard/manage-min-price.html'
     success_url = reverse_lazy('manage-min-price')
 

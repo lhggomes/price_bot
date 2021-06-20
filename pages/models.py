@@ -34,7 +34,6 @@ class Product(models.Model):
 class ProductMinValue(models.Model):
     min_value = models.FloatField(verbose_name="Valor Minimo")
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Produto")
-    company = models.ForeignKey(Company, on_delete=models.PROTECT, default='', verbose_name="Empresa")
     date = models.DateTimeField(default=datetime.date.today)
 
     def __str__(self):
