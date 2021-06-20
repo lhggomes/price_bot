@@ -28,6 +28,14 @@ SECRET_KEY = 'django-insecure-(b#p=3-f&6^4#6v75pp09fab-_=l0_$wq3l&et@pd5p%=zi+cm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'price.bot.checker@gmail.com'
+EMAIL_HOST_PASSWORD = 'Cleider12!@'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Price Bot'
+
 ALLOWED_HOSTS = []
 
 # Application definition
