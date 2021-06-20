@@ -1,0 +1,32 @@
+{% load i18n %}
+<html lang="pt-br">
+<body>
+<p>
+    {% trans 'Olá, o produto abaixo sofreu alteração no site dos fornecedores, tal como é descrito abaixo' %}
+</p>
+
+<table>
+    <tr>
+        <th>{% trans 'Produto' %}</th>
+        <th>{% trans 'Descrição' %}</th>
+        <th>{% trans 'Valor' %}</th>
+        <th>{% trans 'Empresa' %}</th>
+    </tr>
+    <tr>
+        <td>{{ product.code }}</td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.code }}</td>
+
+    </tr>
+
+</table>
+
+<p>
+    <i>
+        {% trans 'Essa mensagem foi enviada automaticamente pelo sistema de verificação de preços' %}
+    </i>
+</p>
+
+</body>
+</html>

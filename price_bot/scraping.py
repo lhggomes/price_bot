@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 from pages.models import Company, Product, WebSiteDivElement, ProductMinValue
