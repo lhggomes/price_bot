@@ -5,6 +5,7 @@ from pages.models import *
 from price_bot.scraping import get_product
 
 
+
 class Dashboard(TemplateView):
     template_name = 'pages/dashboard/main.html'
 

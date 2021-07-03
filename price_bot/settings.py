@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'login',
     'pages',
-    'django_celer'
+    'django_celery_results'
 ]
 
 MIDDLEWARE = [
@@ -140,3 +140,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_DEFAULT_QUEUE = os.environ['CELERY_DEFAULT_QUEUE']
+CELERY_CONTENT_ENCODING = 'utf-8'
+CELERY_RESULT_BACKEND = 'django-db'
