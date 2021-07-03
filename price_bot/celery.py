@@ -14,11 +14,11 @@ app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 app.conf.beat_schedule = {
-    ############ More Frequently
-    # “At every 10th minute.”
+
+    # “At every 2 minute.”
     'parse_multicv': {
-        'task': 'price_bot.tasks.parse_multicv',
-        'schedule': crontab(minute='*/15')
+        'task': 'price_bot.tasks.get_product_price',
+        'schedule': crontab(minute='*/2')
     },
 }
 
