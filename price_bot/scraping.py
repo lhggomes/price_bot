@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
-from pages.models import Company, Product, WebSiteDivElement, ProductMinValue
+from pages.models import Company, Product, WebSiteDivElement, ProductMinValue, ProductPriceHistory
 from price_bot.utils import format_html
 from bs4 import BeautifulSoup
 
@@ -43,7 +43,11 @@ def get_product():
                                 soup.findAll('span', {"class": str(company.price_div)}, limit=1)[0]
                         value = float(elements.text.split('R$ ')[-1].replace('.', "").replace(",", "."))
                         if value < min_price.min_value:
-                            print('Thank you')
+                            ProductPriceHistory.objects.create(
+                                product=product,
+                                company=company,
+                                price=float(value)
+                            )
 
                     except Exception as e:
                         print(e.__repr__())
