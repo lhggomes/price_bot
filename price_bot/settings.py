@@ -147,3 +147,8 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_CONTENT_ENCODING = 'utf-8'
 CELERY_RESULT_BACKEND = 'django-db'
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
