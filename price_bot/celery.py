@@ -16,7 +16,7 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 app.conf.beat_schedule = {
 
     # “At every 2 minute.”
-    'parse_multicv': {
+    'get_product_price': {
         'task': 'price_bot.tasks.get_product_price',
         'schedule': crontab(minute='*/2')
     },

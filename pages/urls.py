@@ -3,7 +3,7 @@ from pages.views import *
 
 urlpatterns = [
     # Create Views
-    path('dashboard/', Dashboard.as_view(), name='dashboard-main'),
+    path('', Dashboard.as_view(), name='dashboard-main'),
     path('dashboard/manage-product', ManageProduct.as_view(), name='manage-product'),
     path('dashboard/manage-company', ManageCompany.as_view(), name='manage-company'),
     path('dashboard/manage-price', ManageMinPrice.as_view(), name='manage-min-price'),
