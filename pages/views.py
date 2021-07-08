@@ -95,7 +95,7 @@ class UpdateCompany(UpdateView):
 
 class UpdateMinPrice(UpdateView):
     model = ProductMinValue
-    fields = ['product', 'min_value', 'company']
+    fields = ['product', 'min_value',]
     template_name = 'pages/dashboard/update/update-view.html'
     success_url = reverse_lazy('update-price')
 
