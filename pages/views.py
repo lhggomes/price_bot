@@ -13,7 +13,7 @@ class Dashboard(TemplateView):
 # Classes to manage the data
 class ManageProduct(CreateView):
     model = Product
-    fields = ['code', 'description', 'ean', 'url', 'image_url']
+    fields = ['code', 'description', 'url',]
     template_name = 'pages/dashboard/manage-product.html'
     success_url = reverse_lazy('manage-product')
 
