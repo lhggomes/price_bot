@@ -50,7 +50,7 @@ def get_product():
 
                                 ProductPriceHistory.objects.create(
                                     product=product,
-                                    company=company,
+                                    company=company.company,
                                     price=float(value)
                                 )
                                 email_template = f"""
@@ -67,10 +67,12 @@ def get_product():
                                 send_mail(
                                     'ALERTA DE PREÇO: BOT',
                                     email_template,
-                                    'web_site',
+                                    'price.bot.checker@gmail.com',
                                     ['lucas.henrique.s.go@gmail.com', 'cleidercsa@gmail.com'],
                                     fail_silently=False
                                 )
+
+
                             except Exception as e:
                                 print(f'Cannot perform update for this task: {e.__repr__()}')
 
