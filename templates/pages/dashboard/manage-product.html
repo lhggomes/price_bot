@@ -49,7 +49,6 @@
                 <tr>
                     <th>{% trans 'Código' %}</th>
                     <th>{% trans 'Descrição' %}</th>
-                    <th>{% trans 'EAN' %}</th>
                     <th>{% trans 'Data Cadastro' %}</th>
                     <th>{% trans 'Editar' %}</th>
                     <th>{% trans 'Excluir' %}</th>
@@ -62,7 +61,6 @@
                     <tr>
                         <td>{{ product.code }}</td>
                         <td>{{ product.description }}</td>
-                        <td>{{ product.ean }}</td>
                         <td>{{ product.date }}</td>
                         <td><a href="{% url 'update-product' product.pk %}"><span
                                 class="material-icons" style="font-size: 20px !important;">edit</span></a>
