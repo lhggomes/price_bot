@@ -19,6 +19,7 @@ def create_company_and_product_list():
 
 
 def get_product():
+    print(f'Teste')
     companies, products = create_company_and_product_list()
     for company in companies:
         for product in products:
@@ -42,12 +43,36 @@ def get_product():
                             elements = \
                                 soup.findAll('span', {"class": str(company.price_div)}, limit=1)[0]
                         value = float(elements.text.split('R$ ')[-1].replace('.', "").replace(",", "."))
-                        if value > min_price.min_value:
-                            ProductPriceHistory.objects.create(
-                                product=product,
-                                company=company,
-                                price=float(value)
-                            )
+                        print(f'Teste Ok')
+
+                        if value <= min_price.min_value:
+                            try:
+
+                                ProductPriceHistory.objects.create(
+                                    product=product,
+                                    company=company,
+                                    price=float(value)
+                                )
+                                email_template = f"""
+                                Olá, o seguinte produto foi encontrado com um preço menor do que o cadastrado! 
+                                
+                                Produto: {product.code}
+                                Descrição: {product.description}
+                                Valor Minimo Cadastrado: {min_price.min_value}
+                                
+                                VALOR SITE: {value}
+                                REVENDEDORA: {web_site}
+                                
+                                """
+                                send_mail(
+                                    'ALERTA DE PREÇO: BOT',
+                                    email_template,
+                                    'web_site',
+                                    ['lucas.henrique.s.go@gmail.com', 'cleidercsa@gmail.com'],
+                                    fail_silently=False
+                                )
+                            except Exception as e:
+                                print(f'Cannot perform update for this task: {e.__repr__()}')
 
                     except Exception as e:
                         print(e.__repr__())
