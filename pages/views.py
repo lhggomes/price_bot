@@ -75,7 +75,7 @@ class ManageWebSiteDivs(CreateView):
 # Classes to update the data
 class UpdateProduct(UpdateView):
     model = Product
-    fields = ['code', 'description', 'ean', 'url', 'image_url']
+    fields = ['code', 'description', 'url',]
     template_name = 'pages/dashboard/update/update-view.html'
     success_url = reverse_lazy('update-product')
 
