@@ -42,7 +42,7 @@ def get_product():
                             elements = \
                                 soup.findAll('span', {"class": str(company.price_div)}, limit=1)[0]
                         value = float(elements.text.split('R$ ')[-1].replace('.', "").replace(",", "."))
-                        if value < min_price.min_value:
+                        if value > min_price.min_value:
                             ProductPriceHistory.objects.create(
                                 product=product,
                                 company=company,
