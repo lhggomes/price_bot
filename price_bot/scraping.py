@@ -72,12 +72,32 @@ def get_product():
                                     fail_silently=False
                                 )
 
-
                             except Exception as e:
+                                send_mail(
+                                    'ALERTA: EXCEPTIONS',
+                                    e.__repr__(),
+                                    'price.bot.checker@gmail.com',
+                                    ['lucas.henrique.s.go@gmail.com'],
+                                    fail_silently=False
+                                )
                                 print(f'Cannot perform update for this task: {e.__repr__()}')
 
                     except Exception as e:
+                        send_mail(
+                            'ALERTA: EXCEPTIONS',
+                            e.__repr__(),
+                            'price.bot.checker@gmail.com',
+                            ['lucas.henrique.s.go@gmail.com'],
+                            fail_silently=False
+                        )
                         print(e.__repr__())
 
                 except HTTPError as e:
+                    send_mail(
+                        'ALERTA: EXCEPTIONS',
+                        e.__repr__(),
+                        'price.bot.checker@gmail.com',
+                        ['lucas.henrique.s.go@gmail.com'],
+                        fail_silently=False
+                    )
                     print(e.status, e.reason)
