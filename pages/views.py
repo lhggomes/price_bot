@@ -33,7 +33,7 @@ class ManageCompany(CreateView):
     success_url = reverse_lazy('manage-company')
 
     def get_context_data(self, **kwargs):
-        #get_product()
+        get_product()
         context = super().get_context_data(**kwargs)
         context["companies"] = Company.objects.all()
         return context

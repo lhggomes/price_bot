@@ -19,7 +19,7 @@ def create_company_and_product_list():
 
 
 def get_product():
-    print(f'Teste')
+    print(f'Inicio Processamento de Captura de ')
     companies, products = create_company_and_product_list()
     for company in companies:
         for product in products:
@@ -37,14 +37,16 @@ def get_product():
 
                     try:
                         elements = \
-                            soup.findAll('div', {"class": str(company.price_div)}, limit=1)[0]
+                            soup.findAll('div', {"class": str(company.price_div)}, limit=1)
 
+                        elements = elements[0] if elements else None
                         if elements is None:
                             elements = \
-                                soup.findAll('span', {"class": str(company.price_div)}, limit=1)[0]
-                        value = float(elements.text.split('R$ ')[-1].replace('.', "").replace(",", "."))
-                        print(f'Teste Ok')
+                                soup.findAll('span', {"class": str(company.price_div)}, limit=1)
+                            elements = elements[0] if elements else None
 
+                        value = float(elements.text.split('R$ ')[-1].replace('.', "").replace(",", ".")) if elements is not None else float(9999999)
+                        print(f'Teste Ok')
                         if value <= min_price.min_value:
                             try:
 
@@ -68,7 +70,8 @@ def get_product():
                                     'ALERTA DE PREÇO: BOT',
                                     email_template,
                                     'price.bot.checker@gmail.com',
-                                    ['lucas.henrique.s.go@gmail.com', 'cleidercsa@gmail.com'],
+                                    ['lucas.henrique.s.go@gmail.com', 'cleidercsa@gmail.com',
+                                     'lucas.henrique@a.unileste.edu.br'],
                                     fail_silently=False
                                 )
 
@@ -87,7 +90,7 @@ def get_product():
                             'ALERTA: EXCEPTIONS',
                             e.__repr__(),
                             'price.bot.checker@gmail.com',
-                            ['lucas.henrique.s.go@gmail.com'],
+                            ['lucas.henrique.s.go@gmail.com', 'lucas.henrique@a.unileste.edu.br'],
                             fail_silently=False
                         )
                         print(e.__repr__())
@@ -97,7 +100,7 @@ def get_product():
                         'ALERTA: EXCEPTIONS',
                         e.__repr__(),
                         'price.bot.checker@gmail.com',
-                        ['lucas.henrique.s.go@gmail.com'],
+                        ['lucas.henrique.s.go@gmail.com', 'lucas.henrique@a.unileste.edu.br'],
                         fail_silently=False
                     )
                     print(e.status, e.reason)

@@ -1,4 +1,5 @@
 import datetime
+from django.utils import timezone
 from django.db import models
 
 
@@ -62,7 +63,7 @@ class ProductPriceHistory(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     company = models.ForeignKey(Company, on_delete=models.PROTECT)
     price = models.FloatField()
-    date = models.DateTimeField(default=datetime.datetime.now)
+    date = models.DateTimeField(default=datetime.datetime.now(tz=timezone.utc))
 
     def __str__(self):
         return f'{self.product.description} - {self.company.description}: {self.price}'
@@ -70,3 +71,7 @@ class ProductPriceHistory(models.Model):
     class Meta:
         verbose_name = "Histórico de Preço"
         verbose_name_plural = "Históricos de Preços"
+
+    def save(self, *args, **kwargs):
+        self.date = self.date.replace(tzinfo=None)
+        super(ProductPriceHistory, self).save(*args, **kwargs)

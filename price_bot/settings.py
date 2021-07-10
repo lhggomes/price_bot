@@ -84,6 +84,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'price_bot.wsgi.application'
+USE_TZ = False
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
